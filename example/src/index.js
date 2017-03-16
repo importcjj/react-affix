@@ -8,8 +8,9 @@ class App extends Component {
     render() {
         return (
             <div style={{height: 1500, margin: '50px 0'}}>
-                <AffixHeader></AffixHeader>
+
                 <AffixWithContainer></AffixWithContainer>
+                                <AffixHeader></AffixHeader>
             </div>
         )
     }
