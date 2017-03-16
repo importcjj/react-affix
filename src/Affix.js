@@ -11,12 +11,15 @@ const navStyle = {
 
 const AffixHeader = props => {
     return (
+        <div>
+        <h1>## affix in a container. </h1>
         <Affix offsetTop={0} horizontal={true}>
             <div style={navStyle}>
                             <h1>react-affix live demo.</h1>
                 <a href="https://github.com/importcjj/react-affix">github</a>
             </div>
         </Affix>
+        </div>
     )
 }
 
