@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf lib",
-    "build": "npm run clean && babel src --out-dir lib"
+    "build": "npm run clean && babel src --out-dir lib",
+    "dev-server": "webpack-dev-server --port 9999",
+    "example": "npm run build && webpack"
   },
   "repository": {
     "type": "git",
