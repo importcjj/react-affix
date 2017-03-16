@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ContainerAffix from '../../lib/ContainerAffix';
 
+import AffixHeader from './Affix';
+import AffixWithContainer from './AffixWithContainer';
 
-const App = props => {
-    return (
-        <div>
-            <ContainerAffix>
-                <p>This is a affixed element.</p>
-            </ContainerAffix>
-        </div>
-    )
+class App extends Component {
+    render() {
+        return (
+            <div style={{height: 1500, margin: '50px 0'}}>
+                <AffixHeader></AffixHeader>
+                <AffixWithContainer></AffixWithContainer>
+            </div>
+        )
+    }
 }
 
 ReactDOM.render(<App></App>, document.getElementById("root"))
