@@ -87,8 +87,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { style: { height: 1500, margin: '50px 0' } },
-	                _react2.default.createElement(_Affix2.default, null),
-	                _react2.default.createElement(_AffixWithContainer2.default, null)
+	                _react2.default.createElement(_AffixWithContainer2.default, null),
+	                _react2.default.createElement(_Affix2.default, null)
 	            );
 	        }
 	    }]);
@@ -21562,7 +21562,7 @@
 	var AffixHeader = function AffixHeader(props) {
 	    return _react2.default.createElement(
 	        _Affix2.default,
-	        { offsetTop: 700, horizontal: true },
+	        { offsetTop: 0, horizontal: true },
 	        _react2.default.createElement(
 	            'div',
 	            { style: navStyle },
