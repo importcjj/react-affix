@@ -5,7 +5,6 @@ import Affix from '../../lib/Affix.js';
 const containerStyle = {
     border: 'solid #ccc',
     borderWidth: '1 1 1 1',
-    marginTop: 150,
     width: 900,
     height: 400,
     padding: 10,
@@ -27,10 +26,10 @@ class AffixWithContainer extends Component {
     }
     render() {
         return (
-            <div style={{ width: 1500 }}>
+            <div style={{ width: 1500, margin: 10 }}>
+            <h1>## a simple affix demo </h1>
             <div style={containerStyle} >
-                <h2>container</h2>
-                <Affix container={this} offsetTop={60} onChange={onChange}>
+                <Affix container={this} offsetTop={0} onChange={onChange}>
                     <div style={contentStyle}>
                         <p>This is a affixed element in a container!</p>
                         <p>当窗口向上滚动使元素触顶时， 元素自动固定在顶部</p>
@@ -42,6 +41,7 @@ class AffixWithContainer extends Component {
                         <p>另外, 当容器组件向上滚出页面时，本元素也将随之滚出.</p>
                     </div>
                 </Affix>
+                <h2>container</h2>
             </div>
             </div>
         )

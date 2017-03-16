@@ -21561,20 +21561,29 @@
 
 	var AffixHeader = function AffixHeader(props) {
 	    return _react2.default.createElement(
-	        _Affix2.default,
-	        { offsetTop: 0, horizontal: true },
+	        'div',
+	        null,
 	        _react2.default.createElement(
-	            'div',
-	            { style: navStyle },
+	            'h1',
+	            null,
+	            '## affix in a container. '
+	        ),
+	        _react2.default.createElement(
+	            _Affix2.default,
+	            { offsetTop: 0, horizontal: true },
 	            _react2.default.createElement(
-	                'h1',
-	                null,
-	                'react-affix live demo.'
-	            ),
-	            _react2.default.createElement(
-	                'a',
-	                { href: 'https://github.com/importcjj/react-affix' },
-	                'github'
+	                'div',
+	                { style: navStyle },
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    'react-affix live demo.'
+	                ),
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: 'https://github.com/importcjj/react-affix' },
+	                    'github'
+	                )
 	            )
 	        )
 	    );
@@ -21808,7 +21817,6 @@
 	var containerStyle = {
 	    border: 'solid #ccc',
 	    borderWidth: '1 1 1 1',
-	    marginTop: 150,
 	    width: 900,
 	    height: 400,
 	    padding: 10
@@ -21837,18 +21845,18 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { width: 1500 } },
+	                { style: { width: 1500, margin: 10 } },
+	                _react2.default.createElement(
+	                    'h1',
+	                    null,
+	                    '## a simple affix demo '
+	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { style: containerStyle },
 	                    _react2.default.createElement(
-	                        'h2',
-	                        null,
-	                        'container'
-	                    ),
-	                    _react2.default.createElement(
 	                        _Affix2.default,
-	                        { container: this, offsetTop: 60, onChange: onChange },
+	                        { container: this, offsetTop: 0, onChange: onChange },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { style: contentStyle },
@@ -21895,6 +21903,11 @@
 	                                '\u53E6\u5916, \u5F53\u5BB9\u5668\u7EC4\u4EF6\u5411\u4E0A\u6EDA\u51FA\u9875\u9762\u65F6\uFF0C\u672C\u5143\u7D20\u4E5F\u5C06\u968F\u4E4B\u6EDA\u51FA.'
 	                            )
 	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'h2',
+	                        null,
+	                        'container'
 	                    )
 	                )
 	            );
