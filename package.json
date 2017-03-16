@@ -1,5 +1,5 @@
 {
-  "name": "react-affix",
+  "name": "react-affixed",
   "version": "1.0.0",
   "description": "react affix component.",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "affix",
     "react-component"
   ],
-  "author": "importcjj",
+  "author": "georgeisgood",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
