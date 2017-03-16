@@ -1,1 +1,1 @@
-export ContainerAffix from './ContainerAffix';
+export Affix from './Affix';

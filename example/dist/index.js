@@ -56,9 +56,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _ContainerAffix = __webpack_require__(178);
+	var _Affix = __webpack_require__(178);
 
-	var _ContainerAffix2 = _interopRequireDefault(_ContainerAffix);
+	var _Affix2 = _interopRequireDefault(_Affix);
+
+	var _AffixWithContainer = __webpack_require__(180);
+
+	var _AffixWithContainer2 = _interopRequireDefault(_AffixWithContainer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68,99 +72,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var containerStyle = {
-	    border: 'solid #ccc',
-	    borderWidth: '1 1 1 1',
-
-	    width: 900,
-	    height: 400,
-	    padding: 10
-	};
-
-	var contentStyle = {
-	    background: "#000",
-	    color: "#FFF"
-	};
-
-	var ExampleContainerAffix = function (_Component) {
-	    _inherits(ExampleContainerAffix, _Component);
-
-	    function ExampleContainerAffix(props) {
-	        _classCallCheck(this, ExampleContainerAffix);
-
-	        return _possibleConstructorReturn(this, (ExampleContainerAffix.__proto__ || Object.getPrototypeOf(ExampleContainerAffix)).call(this, props));
-	    }
-
-	    _createClass(ExampleContainerAffix, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { style: containerStyle },
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'container'
-	                ),
-	                _react2.default.createElement(
-	                    _ContainerAffix2.default,
-	                    { container: this },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { style: contentStyle },
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            'This is a affixed element!'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            '\u5F53\u7A97\u53E3\u5411\u4E0A\u6EDA\u52A8\u4F7F\u5143\u7D20\u89E6\u9876\u65F6\uFF0C \u5143\u7D20\u81EA\u52A8\u56FA\u5B9A\u5728\u9876\u90E8'
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            '\u4F46\u662F\u5143\u7D20\u6B64\u65F6\u80FD\u53EF\u4EE5\u968F\u7A97\u53E3\u5DE6\u53F3\u6ED1\u52A8, \u8FD9\u4E00\u7279\u6027\u4E5F\u662F\u4E0E\u5176\u4ED6\u7C7B\u4F3C\u7EC4\u4EF6\u4E0D\u540C\u7684\u5730\u65B9:'
-	                        ),
-	                        _react2.default.createElement(
-	                            'ul',
-	                            null,
-	                            _react2.default.createElement(
-	                                'li',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { href: 'https://ant.design/components/affix-cn/' },
-	                                    'antd affix'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'li',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { href: 'https://react-bootstrap.github.io/react-overlays/#affixes' },
-	                                    'react-overlays'
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            '\u53E6\u5916, \u5F53\u5BB9\u5668\u7EC4\u4EF6\u5411\u4E0A\u6EDA\u51FA\u9875\u9762\u65F6\uFF0C\u672C\u5143\u7D20\u4E5F\u5C06\u968F\u4E4B\u6EDA\u51FA.'
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return ExampleContainerAffix;
-	}(_react.Component);
-
-	var App = function (_Component2) {
-	    _inherits(App, _Component2);
+	var App = function (_Component) {
+	    _inherits(App, _Component);
 
 	    function App() {
 	        _classCallCheck(this, App);
@@ -173,13 +86,9 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { height: 1200, width: 2000, padding: 10 } },
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'react-affix live demo'
-	                ),
-	                _react2.default.createElement(ExampleContainerAffix, null)
+	                { style: { height: 1500, margin: '50px 0' } },
+	                _react2.default.createElement(_Affix2.default, null),
+	                _react2.default.createElement(_AffixWithContainer2.default, null)
 	            );
 	        }
 	    }]);
@@ -21633,6 +21542,56 @@
 	    value: true
 	});
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Affix = __webpack_require__(179);
+
+	var _Affix2 = _interopRequireDefault(_Affix);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var navStyle = {
+	    height: 80,
+	    width: '100%',
+	    background: '#f5f5f5',
+	    border: '1px solid #999'
+	};
+
+	var AffixHeader = function AffixHeader(props) {
+	    return _react2.default.createElement(
+	        _Affix2.default,
+	        { offsetTop: 700, horizontal: true },
+	        _react2.default.createElement(
+	            'div',
+	            { style: navStyle },
+	            _react2.default.createElement(
+	                'h1',
+	                null,
+	                'react-affix live demo.'
+	            ),
+	            _react2.default.createElement(
+	                'a',
+	                { href: 'https://github.com/importcjj/react-affix' },
+	                'github'
+	            )
+	        )
+	    );
+	};
+
+	exports.default = AffixHeader;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -21651,17 +21610,18 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ContainerAffix = function (_Component) {
-	    _inherits(ContainerAffix, _Component);
+	var Affix = function (_Component) {
+	    _inherits(Affix, _Component);
 
-	    function ContainerAffix(props) {
-	        _classCallCheck(this, ContainerAffix);
+	    function Affix(props) {
+	        _classCallCheck(this, Affix);
 
-	        var _this = _possibleConstructorReturn(this, (ContainerAffix.__proto__ || Object.getPrototypeOf(ContainerAffix)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Affix.__proto__ || Object.getPrototypeOf(Affix)).call(this, props));
 
 	        _this.state = {
-	            top: 0,
-	            left: 0,
+	            affixed: false,
+	            initTop: 0,
+	            initLeft: 0,
 	            marginTop: 0,
 	            marginLeft: 0,
 	            height: 0,
@@ -21672,11 +21632,12 @@
 
 	        _this.calculate = _this.calculate.bind(_this);
 	        _this.getInitPosition = _this.getInitPosition.bind(_this);
+	        _this.getContainerDOM = _this.getContainerDOM.bind(_this);
 	        _this.lisntenWindowChange = _this.lisntenWindowChange.bind(_this);
 	        return _this;
 	    }
 
-	    _createClass(ContainerAffix, [{
+	    _createClass(Affix, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            this.getInitPosition();
@@ -21696,9 +21657,18 @@
 	            }
 	        }
 	    }, {
+	        key: 'getContainerDOM',
+	        value: function getContainerDOM() {
+	            var container = this.props.container;
+	            if (container != document.body) {
+	                return _reactDom2.default.findDOMNode(container);
+	            }
+	            return container;
+	        }
+	    }, {
 	        key: 'getInitPosition',
 	        value: function getInitPosition() {
-	            var container = _reactDom2.default.findDOMNode(this.props.container);
+	            var container = this.getContainerDOM();
 	            var thisElm = _reactDom2.default.findDOMNode(this);
 
 	            this.setState({
@@ -21717,12 +21687,19 @@
 	            var marginTop = top - containerRect.top;
 	            var marginLeft = left - containerRect.left;
 
-	            this.setState({ top: top, left: left, marginTop: marginTop, marginLeft: marginLeft });
+	            this.setState({
+	                top: top,
+	                left: left,
+	                initTop: top,
+	                initLeft: left,
+	                marginTop: marginTop,
+	                marginLeft: marginLeft
+	            });
 	        }
 	    }, {
 	        key: 'lisntenWindowChange',
-	        value: function lisntenWindowChange() {
-	            var container = _reactDom2.default.findDOMNode(this.props.container);
+	        value: function lisntenWindowChange(evt) {
+	            var container = this.getContainerDOM();
 
 	            var _container$getBoundin = container.getBoundingClientRect(),
 	                top = _container$getBoundin.top,
@@ -21732,20 +21709,32 @@
 	                top: top + this.state.marginTop,
 	                left: left + this.state.marginLeft
 	            });
+
+	            if (this.state.top <= this.props.offsetTop) {
+	                if (this.state.affixed == false) {
+	                    this.props.onChange({ affixed: true, event: evt });
+	                }
+	                this.setState({ affixed: true });
+	            }
+
+	            if (this.state.top > this.props.offsetTop) {
+	                if (this.state.affixed == true) {
+	                    this.props.onChange({ affixed: false, event: evt });
+	                }
+	                this.setState({ affixed: false });
+	            }
 	        }
 	    }, {
 	        key: 'calculate',
 	        value: function calculate() {
-	            var h = this.state.containerHeight + this.state.top - this.state.marginTop - this.state.height;
-
+	            var h = this.state.top - this.state.marginTop + this.state.containerHeight - this.state.height;
 	            if (this.state.top < this.props.offsetTop) {
 	                return {
 	                    position: "fixed",
-	                    top: h < 0 ? h : this.props.offsetTop,
-	                    left: this.state.left,
+	                    top: h < 0 ? h : Math.min(h, this.props.offsetTop),
+	                    left: this.props.horizontal ? this.state.initLeft : this.state.left,
 	                    height: this.state.height,
-	                    width: this.state.width,
-	                    marginTop: '0 !important'
+	                    width: this.state.width
 	                };
 	            }
 	            return {};
@@ -21763,23 +21752,159 @@
 	        }
 	    }]);
 
-	    return ContainerAffix;
+	    return Affix;
 	}(_react.Component);
 
-	ContainerAffix.propTypes = {
+	Affix.propTypes = {
 	    container: _react.PropTypes.object,
 	    offsetTop: _react.PropTypes.number,
-	    target: _react.PropTypes.func
+	    horizontal: _react.PropTypes.bool,
+	    target: _react.PropTypes.func,
+	    onChange: _react.PropTypes.func
 	};
 
-	ContainerAffix.defaultProps = {
+	Affix.defaultProps = {
 	    offsetTop: 0,
+	    horizontal: false,
+	    container: document.body,
 	    target: function target() {
 	        return window;
+	    },
+	    onChange: function onChange(affixed) {
+	        return {};
 	    }
 	};
 
-	exports.default = ContainerAffix;
+	exports.default = Affix;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Affix = __webpack_require__(179);
+
+	var _Affix2 = _interopRequireDefault(_Affix);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var containerStyle = {
+	    border: 'solid #ccc',
+	    borderWidth: '1 1 1 1',
+	    marginTop: 150,
+	    width: 900,
+	    height: 400,
+	    padding: 10
+	};
+
+	var contentStyle = {
+	    background: "#000",
+	    color: "#FFF"
+	};
+
+	var onChange = function onChange(affixed) {
+	    console.log(affixed);
+	};
+
+	var AffixWithContainer = function (_Component) {
+	    _inherits(AffixWithContainer, _Component);
+
+	    function AffixWithContainer(props) {
+	        _classCallCheck(this, AffixWithContainer);
+
+	        return _possibleConstructorReturn(this, (AffixWithContainer.__proto__ || Object.getPrototypeOf(AffixWithContainer)).call(this, props));
+	    }
+
+	    _createClass(AffixWithContainer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { width: 1500 } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: containerStyle },
+	                    _react2.default.createElement(
+	                        'h2',
+	                        null,
+	                        'container'
+	                    ),
+	                    _react2.default.createElement(
+	                        _Affix2.default,
+	                        { container: this, offsetTop: 60, onChange: onChange },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { style: contentStyle },
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                'This is a affixed element in a container!'
+	                            ),
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                '\u5F53\u7A97\u53E3\u5411\u4E0A\u6EDA\u52A8\u4F7F\u5143\u7D20\u89E6\u9876\u65F6\uFF0C \u5143\u7D20\u81EA\u52A8\u56FA\u5B9A\u5728\u9876\u90E8'
+	                            ),
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                '\u4F46\u662F\u5143\u7D20\u6B64\u65F6\u80FD\u53EF\u4EE5\u968F\u7A97\u53E3\u5DE6\u53F3\u6ED1\u52A8, \u8FD9\u4E00\u7279\u6027\u4E5F\u662F\u4E0E\u5176\u4ED6\u7C7B\u4F3C\u7EC4\u4EF6\u4E0D\u540C\u7684\u5730\u65B9:'
+	                            ),
+	                            _react2.default.createElement(
+	                                'ul',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'li',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { href: 'https://ant.design/components/affix-cn/' },
+	                                        'antd affix'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'li',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { href: 'https://react-bootstrap.github.io/react-overlays/#affixes' },
+	                                        'react-overlays'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                '\u53E6\u5916, \u5F53\u5BB9\u5668\u7EC4\u4EF6\u5411\u4E0A\u6EDA\u51FA\u9875\u9762\u65F6\uFF0C\u672C\u5143\u7D20\u4E5F\u5C06\u968F\u4E4B\u6EDA\u51FA.'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AffixWithContainer;
+	}(_react.Component);
+
+	exports.default = AffixWithContainer;
 
 /***/ }
 /******/ ]);

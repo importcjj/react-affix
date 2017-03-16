@@ -1,17 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-class ContainerAffix extends Component {
+class Affix extends Component {
     constructor(props) {
         super(props);
         this.calculate = this.calculate.bind(this);
         this.getInitPosition = this.getInitPosition.bind(this);
+        this.getContainerDOM = this.getContainerDOM.bind(this);
         this.lisntenWindowChange = this.lisntenWindowChange.bind(this);
     }
 
     state = {
-        top: 0,
-        left: 0,
+        affixed: false,
+        initTop: 0,
+        initLeft: 0,
         marginTop: 0,
         marginLeft: 0,
         height: 0,
@@ -37,8 +39,16 @@ class ContainerAffix extends Component {
         }
     }
 
+    getContainerDOM() {
+        const container = this.props.container;
+        if (container != document.body) {
+            return ReactDOM.findDOMNode(container);
+        }
+        return container;
+    }
+
     getInitPosition() {
-        const container = ReactDOM.findDOMNode(this.props.container)
+        const container = this.getContainerDOM()
         const thisElm = ReactDOM.findDOMNode(this);
 
         this.setState({
@@ -55,30 +65,51 @@ class ContainerAffix extends Component {
         const marginTop = top - containerRect.top;
         const marginLeft = left - containerRect.left;
 
-        this.setState({ top: top, left: left, marginTop: marginTop, marginLeft: marginLeft});
+        this.setState({
+            top: top,
+            left: left,
+            initTop: top,
+            initLeft: left,
+            marginTop: marginTop,
+            marginLeft: marginLeft
+        });
     }
 
-    lisntenWindowChange() {
-        const container = ReactDOM.findDOMNode(this.props.container)
+    lisntenWindowChange(evt) {
+        const container = this.getContainerDOM()
         const { top, left } = container.getBoundingClientRect()
 
         this.setState({
             top: top + this.state.marginTop,
             left: left + this.state.marginLeft
         })
+
+        if (this.state.top <= this.props.offsetTop) {
+            if ( this.state.affixed == false) {
+                this.props.onChange({ affixed: true, event: evt})
+            }
+            this.setState({ affixed: true })
+        }
+
+        if (this.state.top > this.props.offsetTop) {
+            if ( this.state.affixed == true) {
+                this.props.onChange({ affixed: false, event: evt})
+            }
+            this.setState({ affixed: false })
+        }
     }
 
-    calculate() {
-        let h = (this.state.containerHeight + this.state.top - this.state.marginTop) - this.state.height;
 
+
+    calculate() {
+        let h = (this.state.top - this.state.marginTop + this.state.containerHeight) - this.state.height;
         if (this.state.top < this.props.offsetTop) {
             return {
                 position: "fixed",
-                top: h < 0 ? h : this.props.offsetTop,
-                left: this.state.left,
+                top: h < 0 ? h : Math.min(h, this.props.offsetTop),
+                left: this.props.horizontal ? this.state.initLeft : this.state.left,
                 height: this.state.height,
                 width: this.state.width,
-                marginTop: '0 !important',
             }
         }
         return {}
@@ -95,16 +126,21 @@ class ContainerAffix extends Component {
     }
 }
 
-ContainerAffix.propTypes = {
+Affix.propTypes = {
     container: PropTypes.object,
     offsetTop: PropTypes.number,
-    target: PropTypes.func
+    horizontal: PropTypes.bool,
+    target: PropTypes.func,
+    onChange: PropTypes.func,
 }
 
-ContainerAffix.defaultProps = {
+Affix.defaultProps = {
     offsetTop: 0,
-    target: () => window
+    horizontal: false,
+    container: document.body,
+    target: () => window,
+    onChange: affixed => ({}),
 }
 
 
-export default ContainerAffix;
+export default Affix;
