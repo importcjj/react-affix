@@ -103,24 +103,28 @@ class Affix extends Component {
 
     calculate() {
         let h = (this.state.top - this.state.marginTop + this.state.containerHeight) - this.state.height;
+        let fixStyle = {};
+        let boxStyle = {};
         if (this.state.top < this.props.offsetTop) {
-            return {
+            fixStyle = {
                 position: "fixed",
                 top: h < 0 ? h : Math.min(h, this.props.offsetTop),
                 left: this.props.horizontal ? this.state.initLeft : this.state.left,
                 height: this.state.height,
                 width: this.state.width,
             }
+            boxStyle = {height: this.state.height}
         }
-        return {}
+        return {fixStyle, boxStyle}
     }
 
     render() {
-        const style = this.calculate()
+        const { fixStyle, boxStyle }= this.calculate()
         return (
-            <div style={style}>
-                <div></div>
-                {this.props.children}
+            <div><div style={boxStyle}></div>
+                <div style={fixStyle}>
+                    {this.props.children}
+                </div>
             </div>
         )
     }
