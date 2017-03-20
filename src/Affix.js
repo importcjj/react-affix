@@ -112,6 +112,7 @@ class Affix extends Component {
                 left: this.props.horizontal ? this.state.initLeft : this.state.left,
                 height: this.state.height,
                 width: this.state.width,
+                zIndex: this.props.zIndex,
             }
             boxStyle = {height: this.state.height}
         }
@@ -136,6 +137,7 @@ Affix.propTypes = {
     horizontal: PropTypes.bool,
     target: PropTypes.func,
     onChange: PropTypes.func,
+    zIndex: PropTypes.number,
 }
 
 Affix.defaultProps = {
@@ -144,6 +146,7 @@ Affix.defaultProps = {
     container: document.body,
     target: () => window,
     onChange: affixed => ({}),
+    zIndex: 2,
 }
 
 

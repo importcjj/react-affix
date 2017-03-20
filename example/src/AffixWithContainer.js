@@ -4,15 +4,17 @@ import Affix from '../../lib/Affix.js';
 
 const containerStyle = {
     border: 'solid #ccc',
-    borderWidth: '1 1 1 1',
-    width: 900,
+    borderWidth: '1 0 1 0',
+    width: 1600,
     height: 400,
-    padding: 10,
+    boxSizing: 'border-box',
+    marginTop: 200,
 }
 
 const contentStyle = {
-    background: "#000",
+    background: "#191970",
     color: "#FFF",
+    padding: "30px 40px",
 }
 
 const onChange = affixed => {
@@ -26,10 +28,9 @@ class AffixWithContainer extends Component {
     }
     render() {
         return (
-            <div style={{ width: 1500, margin: 10 }}>
-            <h1>## a simple affix demo </h1>
+            <div>
             <div style={containerStyle} >
-                <Affix container={this} offsetTop={0} onChange={onChange}>
+                <Affix container={this} offsetTop={60} onChange={onChange} zIndex={1}>
                     <div style={contentStyle}>
                         <p>This is a affixed element in a container!</p>
                         <p>当窗口向上滚动使元素触顶时， 元素自动固定在顶部</p>
