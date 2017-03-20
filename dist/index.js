@@ -72,6 +72,39 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var AppStyle = {
+	    height: 2000,
+	    width: 1600,
+	    margin: 0
+	};
+
+	var Banner = function Banner(props) {
+	    var style = {
+	        height: 180,
+	        width: "100%",
+	        background: "#6495ED",
+	        position: "relative"
+	    };
+
+	    var h1Style = {
+	        color: "#FFF",
+	        fontSize: 35,
+	        position: "absolute",
+	        top: 50,
+	        left: 20
+	    };
+
+	    return _react2.default.createElement(
+	        'div',
+	        { style: style },
+	        _react2.default.createElement(
+	            'h1',
+	            { style: h1Style },
+	            'React-Affixed'
+	        )
+	    );
+	};
+
 	var App = function (_Component) {
 	    _inherits(App, _Component);
 
@@ -86,9 +119,10 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { height: 1500, margin: '50px 0' } },
-	                _react2.default.createElement(_AffixWithContainer2.default, null),
-	                _react2.default.createElement(_Affix2.default, null)
+	                { style: AppStyle },
+	                _react2.default.createElement(Banner, null),
+	                _react2.default.createElement(_Affix2.default, null),
+	                _react2.default.createElement(_AffixWithContainer2.default, null)
 	            );
 	        }
 	    }]);
@@ -21553,37 +21587,30 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var navStyle = {
-	    height: 80,
+	    height: 60,
 	    width: '100%',
-	    background: '#f5f5f5',
-	    border: '1px solid #999'
+	    background: '#6495ED',
+	    borderBottom: '1px solid #999'
+	};
+
+	var itemStyle = {
+	    lineHeight: "60px",
+	    color: "#FFF",
+	    textDecoration: "none",
+	    marginLeft: 20
 	};
 
 	var AffixHeader = function AffixHeader(props) {
 	    return _react2.default.createElement(
-	        'div',
-	        null,
+	        _Affix2.default,
+	        { offsetTop: 0, horizontal: true },
 	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            '## affix in a container. '
-	        ),
-	        _react2.default.createElement(
-	            _Affix2.default,
-	            { offsetTop: 0, horizontal: true },
+	            'div',
+	            { style: navStyle },
 	            _react2.default.createElement(
-	                'div',
-	                { style: navStyle },
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    'react-affix live demo.'
-	                ),
-	                _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/importcjj/react-affix' },
-	                    'github'
-	                )
+	                'a',
+	                { style: itemStyle, href: 'https://github.com/importcjj/react-affix' },
+	                'github'
 	            )
 	        )
 	    );
@@ -21737,26 +21764,37 @@
 	        key: 'calculate',
 	        value: function calculate() {
 	            var h = this.state.top - this.state.marginTop + this.state.containerHeight - this.state.height;
+	            var fixStyle = {};
+	            var boxStyle = {};
 	            if (this.state.top < this.props.offsetTop) {
-	                return {
+	                fixStyle = {
 	                    position: "fixed",
 	                    top: h < 0 ? h : Math.min(h, this.props.offsetTop),
 	                    left: this.props.horizontal ? this.state.initLeft : this.state.left,
 	                    height: this.state.height,
-	                    width: this.state.width
+	                    width: this.state.width,
+	                    zIndex: this.props.zIndex
 	                };
+	                boxStyle = { height: this.state.height };
 	            }
-	            return {};
+	            return { fixStyle: fixStyle, boxStyle: boxStyle };
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var style = this.calculate();
+	            var _calculate = this.calculate(),
+	                fixStyle = _calculate.fixStyle,
+	                boxStyle = _calculate.boxStyle;
+
 	            return _react2.default.createElement(
 	                'div',
-	                { style: style },
-	                _react2.default.createElement('div', null),
-	                this.props.children
+	                null,
+	                _react2.default.createElement('div', { style: boxStyle }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: fixStyle },
+	                    this.props.children
+	                )
 	            );
 	        }
 	    }]);
@@ -21769,7 +21807,8 @@
 	    offsetTop: _react.PropTypes.number,
 	    horizontal: _react.PropTypes.bool,
 	    target: _react.PropTypes.func,
-	    onChange: _react.PropTypes.func
+	    onChange: _react.PropTypes.func,
+	    zIndex: _react.PropTypes.number
 	};
 
 	Affix.defaultProps = {
@@ -21781,7 +21820,8 @@
 	    },
 	    onChange: function onChange(affixed) {
 	        return {};
-	    }
+	    },
+	    zIndex: 2
 	};
 
 	exports.default = Affix;
@@ -21816,15 +21856,17 @@
 
 	var containerStyle = {
 	    border: 'solid #ccc',
-	    borderWidth: '1 1 1 1',
-	    width: 900,
+	    borderWidth: '1 0 1 0',
+	    width: 1600,
 	    height: 400,
-	    padding: 10
+	    boxSizing: 'border-box',
+	    marginTop: 200
 	};
 
 	var contentStyle = {
-	    background: "#000",
-	    color: "#FFF"
+	    background: "#191970",
+	    color: "#FFF",
+	    padding: "30px 40px"
 	};
 
 	var onChange = function onChange(affixed) {
@@ -21845,18 +21887,13 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { width: 1500, margin: 10 } },
-	                _react2.default.createElement(
-	                    'h1',
-	                    null,
-	                    '## a simple affix demo '
-	                ),
+	                null,
 	                _react2.default.createElement(
 	                    'div',
 	                    { style: containerStyle },
 	                    _react2.default.createElement(
 	                        _Affix2.default,
-	                        { container: this, offsetTop: 0, onChange: onChange },
+	                        { container: this, offsetTop: 60, onChange: onChange, zIndex: 1 },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { style: contentStyle },
