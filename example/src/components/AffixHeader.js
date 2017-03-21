@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Affix from '../../lib/Affix.js';
+import Affix from '../../../lib/Affix.js';
 
 
 const navStyle = {
@@ -21,7 +21,7 @@ const AffixHeader = props => {
     return (
         <Affix offsetTop={0} horizontal={true}>
             <div style={navStyle}>
-                <a style={itemStyle} href="https://github.com/importcjj/react-affix">github</a>
+                <a style={itemStyle} href="https://github.com/importcjj/react-affix">goto github repo</a>
             </div>
         </Affix>
     )

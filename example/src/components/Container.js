@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Affix from '../../lib/Affix.js';
+import Affix from '../../../lib/Affix.js';
 
 
 const containerStyle = {
@@ -42,7 +42,7 @@ class AffixWithContainer extends Component {
                         <p>另外, 当容器组件向上滚出页面时，本元素也将随之滚出.</p>
                     </div>
                 </Affix>
-                <h2>container</h2>
+                <h2>This is the container.</h2>
             </div>
             </div>
         )
