@@ -7,7 +7,7 @@ class Affix extends Component {
         this.calculate = this.calculate.bind(this);
         this.getInitPosition = this.getInitPosition.bind(this);
         this.getContainerDOM = this.getContainerDOM.bind(this);
-        this.lisntenWindowChange = this.lisntenWindowChange.bind(this);
+        this.handleTargetChange = this.handleTargetChange.bind(this);
     }
 
     state = {
@@ -26,16 +26,16 @@ class Affix extends Component {
         this.getInitPosition();
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', this.lisntenWindowChange)
-            listenTarget.addEventListener('scroll', this.lisntenWindowChange)
+            listenTarget.addEventListener('resize', this.handleTargetChange)
+            listenTarget.addEventListener('scroll', this.handleTargetChange)
         }
     }
 
     componentWillUnmount() {
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.removeEventListener('resize', this.lisntenWindowChange)
-            listenTarget.removeEventListener('scroll', this.lisntenWindowChange)
+            listenTarget.removeEventListener('scroll', this.handleTargetChange)
+            listenTarget.removeEventListener('resize', this.handleTargetChange)
         }
     }
 
@@ -75,13 +75,15 @@ class Affix extends Component {
         });
     }
 
-    lisntenWindowChange(evt) {
+    handleTargetChange(evt) {
         const container = this.getContainerDOM()
         const { top, left } = container.getBoundingClientRect()
 
         this.setState({
             top: top + this.state.marginTop,
-            left: left + this.state.marginLeft
+            left: left + this.state.marginLeft,
+            containerHeight: container.offsetHeight,
+            containerWidth: container.offsetWidth,
         })
 
         if (this.state.top <= this.props.offsetTop) {
@@ -97,9 +99,9 @@ class Affix extends Component {
             }
             this.setState({ affixed: false })
         }
+
+        this.props.onTargetChange(this.state)
     }
-
-
 
     calculate() {
         let h = (this.state.top - this.state.marginTop + this.state.containerHeight) - this.state.height;
@@ -137,6 +139,7 @@ Affix.propTypes = {
     horizontal: PropTypes.bool,
     target: PropTypes.func,
     onChange: PropTypes.func,
+    onTargetChange: PropTypes.func,
     zIndex: PropTypes.number,
 }
 
@@ -145,7 +148,8 @@ Affix.defaultProps = {
     horizontal: false,
     container: document.body,
     target: () => window,
-    onChange: affixed => ({}),
+    onChange: (affixed) => ({}),
+    onTargetChange: (state) => ({}),
     zIndex: 2,
 }
 
