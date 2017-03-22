@@ -35,7 +35,7 @@ class Affix extends Component {
         const listenTarget = this.props.target();
         if (listenTarget) {
             listenTarget.removeEventListener('resize', this.lisntenWindowChange)
-            listenTarget.addEventListener('scroll', this.lisntenWindowChange)
+            listenTarget.removeEventListener('scroll', this.lisntenWindowChange)
         }
     }
 
