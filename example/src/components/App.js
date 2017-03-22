@@ -4,17 +4,13 @@ import Banner from './Banner';
 import AffixHeader from './AffixHeader';
 import AffixWithContainer from './Container';
 
+import styles from './App.css';
 
-const AppStyle = {
-    height: 2000,
-    width: 1600,
-    margin: 0,
-}
 
 class App extends Component {
     render() {
         return (
-            <div style={AppStyle}>
+            <div className={styles.app}>
                 <Banner></Banner>
                 <AffixHeader></AffixHeader>
                 <AffixWithContainer></AffixWithContainer>
