@@ -1,5 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+
 
 class Affix extends Component {
     constructor(props) {
@@ -41,7 +43,7 @@ class Affix extends Component {
 
     getContainerDOM() {
         const container = this.props.container;
-        if (container != document.body) {
+        if (container !== document.body) {
             return ReactDOM.findDOMNode(container);
         }
         return container;
@@ -87,14 +89,14 @@ class Affix extends Component {
         })
 
         if (this.state.top <= this.props.offsetTop) {
-            if ( this.state.affixed == false) {
+            if ( this.state.affixed === false) {
                 this.props.onChange({ affixed: true, event: evt})
             }
             this.setState({ affixed: true })
         }
 
         if (this.state.top > this.props.offsetTop) {
-            if ( this.state.affixed == true) {
+            if ( this.state.affixed === true) {
                 this.props.onChange({ affixed: false, event: evt})
             }
             this.setState({ affixed: false })
